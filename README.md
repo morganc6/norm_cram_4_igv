@@ -17,7 +17,7 @@ Using igv version(X>) allows you to normalize files using the tdf input
 ```
 sample=$1
 chr=$2
-reference_fa=genome.fam
+reference_fa=genome.fa
 mygenome=hg19.chrom.sizes
 ```
 
