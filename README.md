@@ -19,21 +19,21 @@ mygenome=hg19.chrom.sizes
 # convert bam to cram using samtools.
 ## to do this for a specific chromosome or set of co-ordinates add this as the last arugment. 
 
-'''
+```
 samtools view -b -T $reference_fa $sample.cram $chr > $sample.bam
-'''
+```
 
 # convert bam file to bed file with with bedtools
-'''
+```
 bamToBed -i $sample.bam > $sample.bed
-'''
+```
 
 # convert bed file to wiggle file with bedtools
-'''
+```
 genomeCoverageBed –i $sample.bed -bg –g $mygenome > $sample.wig
-'''
+```
 
 #convert wiggle file to tdf file using igvtools
-'''
+```
 igvtools toTDF $sample.wig $sample.tdf hg19
-'''
+```
