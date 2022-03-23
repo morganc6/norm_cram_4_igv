@@ -18,9 +18,8 @@ docker pull morganc6/morganc6-norm4igv
 ```
 
 ##### setup of variables
-The reference genome used in the below example is the human UCSC hg19 genome.
-genome.fa is the FASTA file
-[hg19.chrom.sizes](http://hgdownload.cse.ucsc.edu/goldenpath/hg19/bigZips/hg19.chrom.sizes) is available for download on UCSC
+The reference genome used in the below example is the human UCSC hg19 genome. The human genome FASTA file is "genome.fa".
+The [hg19.chrom.sizes](http://hgdownload.cse.ucsc.edu/goldenpath/hg19/bigZips/hg19.chrom.sizes) is available for download on UCSC
 ```
 sample=$1
 chr=$2
@@ -30,7 +29,7 @@ mygenome=hg19.chrom.sizes
 
 #### Series of commands to convert cram to TDF file
 convert bam to cram using samtools.
-Do this for a specific chromosome or set of co-ordinates add this as the last arugment. 
+Do this for all chromosomes, a specific chromosome or set of co-ordinates. This is defined in the last arugment in the following command.
 
 ```
 samtools view -b -T $reference_fa $sample.cram $chr > $sample.bam
