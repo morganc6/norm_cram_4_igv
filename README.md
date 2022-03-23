@@ -5,35 +5,45 @@ this process was put together with the goal of comparing normalized alignments b
 Using igv version(X>) allows you to normalize files using the tdf input
 
 
-## Programs needed for execution
-bedtools,samtools, igvtools (version X>) , igv (version X>)
+#### Programs needed for execution
+* bedtools(v30.0)
+* samtools(v1.15)
+* igvtools (2.5.3)
+* igv(v2.12.3)
 
 
-## CRAM to BAM with extraction of
+## setup of variables
 
+```
 sample=$1
 chr=$2
 reference_fa=genome.fam
 mygenome=hg19.chrom.sizes
+```
 
-# convert bam to cram using samtools.
-## to do this for a specific chromosome or set of co-ordinates add this as the last arugment. 
+convert bam to cram using samtools.
+Do this for a specific chromosome or set of co-ordinates add this as the last arugment. 
 
 ```
 samtools view -b -T $reference_fa $sample.cram $chr > $sample.bam
 ```
 
-# convert bam file to bed file with with bedtools
+convert bam file to bed file with with bedtools
 ```
 bamToBed -i $sample.bam > $sample.bed
 ```
 
-# convert bed file to wiggle file with bedtools
+convert bed file to wiggle file with bedtools
 ```
 genomeCoverageBed –i $sample.bed -bg –g $mygenome > $sample.wig
 ```
 
-#convert wiggle file to tdf file using igvtools
+convert wiggle file to tdf file using igvtools
 ```
 igvtools toTDF $sample.wig $sample.tdf hg19
 ```
+
+Your file is now ready for viewing.
+Open up IGV GUI, load your tdf file.
+
+Ensure that "normalization" is checked by selecting View>Preferences>Tracks tab and selecting the Normalize Coverage Data checkbox.
