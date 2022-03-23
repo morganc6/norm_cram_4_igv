@@ -42,7 +42,7 @@ bamToBed -i $sample.bam > $sample.bed
 
 convert bed file to wiggle file with bedtools
 ```
-genomeCoverageBed –i $sample.bed -bg –g $mygenome > $sample.wig
+genomeCoverageBed –i $sample.bed –g $mygenome -bg > $sample.wig
 ```
 
 convert wiggle file to tdf file using igvtools
