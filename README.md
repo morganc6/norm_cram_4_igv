@@ -1,8 +1,8 @@
 
 # norm_cram_4_igv
-normalisation of cram files for visualations in IGV
-this process was put together with the goal of comparing normalized alignments between individauls so structural variants  could be visually validated on IGV
-Using igv version(X>) allows you to normalize files using the tdf input
+Normalisation of cram files for visualisations on IGV
+
+It is possible to [generate normalized coverage files in IGV if a TDF file is generated using igvtools] (https://software.broadinstitute.org/software/igv/v1.5#:~:text=tdf)%20Track%20Normalization.,the%20Normalize%20Coverage%20Data%20checkbox.) . This process was put together to convert a CRAM file to TDF with the end goal of comparing normalized alignments between samples so structural variants could be visually validated on IGV.
 
 
 #### Programs needed for execution
@@ -11,9 +11,15 @@ Using igv version(X>) allows you to normalize files using the tdf input
 * igvtools (2.5.3)
 * igv(v2.12.3)
 
+The above compliation of programs are available for download as a docker image if required.
+```
+docker pull morganc6/morganc6-norm4igv
+```
 
 ## setup of variables
-
+The reference genome used in the below example is the human UCSC hg19 genome.
+genome.fa is the FASTA file
+[hg19.chrom.sizes] (http://hgdownload.cse.ucsc.edu/goldenpath/hg19/bigZips/hg19.chrom.sizes is available for download on UCSC)
 ```
 sample=$1
 chr=$2
